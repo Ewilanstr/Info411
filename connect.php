@@ -1,8 +1,8 @@
 <?php
 
     define ('SERVEUR_BD','localhost');
-	define ('LOGIN_BD','jean');
-	define ('PASS_BD','michel');
-	define ('NOM_BD','classement'); 
+	define ('LOGIN_BD','root');
+	define ('PASS_BD','');
+	define ('NOM_BD','test'); 
 
 ?>

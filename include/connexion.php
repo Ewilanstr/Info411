@@ -1,5 +1,5 @@
 <?php
-    require('../connect.php');
+    require('../Info411/connect.php');
 	
 	$CONNEXION = mysqli_connect (SERVEUR_BD, LOGIN_BD, PASS_BD);
 	//Connexion au serveur de bases de données
@@ -16,6 +16,10 @@
 	// Spécification de l'encodage UTF-8 pour dialoguer avec la BD
 	if (!mysqli_set_charset($CONNEXION, 'UTF8')) {
     	echo 'Erreur au chargement de l\'encodage UTF-8 : ', mysqli_connect_error(), "\n";
+	}
+
+	else{
+		echo "Connexion réussie";
 	}
 
 ?>
