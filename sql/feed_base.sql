@@ -1,0 +1,1 @@
+/* Fichier permettant d'ajouter les données de base (INSERT)*/
