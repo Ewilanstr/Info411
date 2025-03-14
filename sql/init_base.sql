@@ -1,12 +1,11 @@
-/* Fichier qui sert a créer les tables (CREATE)*/
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : ven. 14 mars 2025 à 14:14
+-- Hôte : localhost
+-- Généré le : ven. 14 mars 2025 à 14:31
 -- Version du serveur : 10.4.32-MariaDB
--- Version de PHP : 8.2.12
+-- Version de PHP : 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,11 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `classement` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(50) NOT NULL,
-  `prenom` varchar(50) NOT NULL,
-  `age` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `Id_jeu` int(11) NOT NULL,
+  `Id_user` int(11) NOT NULL,
+  `note` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -44,7 +42,7 @@ CREATE TABLE `classement` (
 CREATE TABLE `jeux` (
   `id` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL,
-  `note` int(11) NOT NULL
+  `Image` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -75,7 +73,8 @@ INSERT INTO `utilisateur` (`id`, `mail`, `mdp`) VALUES
 -- Index pour la table `classement`
 --
 ALTER TABLE `classement`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`Id_jeu`,`Id_user`),
+  ADD KEY `id_user` (`Id_user`);
 
 --
 -- Index pour la table `jeux`
@@ -94,12 +93,6 @@ ALTER TABLE `utilisateur`
 --
 
 --
--- AUTO_INCREMENT pour la table `classement`
---
-ALTER TABLE `classement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `jeux`
 --
 ALTER TABLE `jeux`
@@ -110,6 +103,17 @@ ALTER TABLE `jeux`
 --
 ALTER TABLE `utilisateur`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `classement`
+--
+ALTER TABLE `classement`
+  ADD CONSTRAINT `id_jeu` FOREIGN KEY (`Id_jeu`) REFERENCES `jeux` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_user` FOREIGN KEY (`Id_user`) REFERENCES `utilisateur` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
