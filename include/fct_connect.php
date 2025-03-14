@@ -20,8 +20,6 @@
 
     if (est_connecte($connexion,$_POST['mail'],$_POST['mdp'])){
         $_SESSION['mail'] = $_POST['mail'];
-        
-        header('Location: classement.php');
     }
     else{
         echo "Connexion echouée";
