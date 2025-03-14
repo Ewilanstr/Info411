@@ -4,17 +4,20 @@
     //include('include/fct_connect.php');
     include('crud/crud_utilisateur.php');
 
-    session_start();
-
     $connexion = db_connect();
 
+    $co = false;
+
     function est_connecte($conn,$mail,$mdp){
+
+        global $co;
+        $co = true;
         $sql = "SELECT `mail`, `mdp` FROM `utilisateur` WHERE `mail`='$mail'";
 
        
         $res = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 
-        if ($res['mdp'] == $mdp) {
+        if ($res['mdp'] == $mdp && $co) {
             $res = true;
         }
         else{
