@@ -8,9 +8,6 @@
 
     $connexion = db_connect();
 
-    var_dump($_POST);
-    var_dump($_SESSION);
-
     function est_connecte($conn,$mail,$mdp){
         $sql = "SELECT `mail`, `mdp` FROM `utilisateur` WHERE `mail`='$mail'";
 
@@ -25,13 +22,15 @@
         }
         return $res;
     }
-
+    $_SESSION["mail"] = $_POST['mail'];
     if (est_connecte($connexion,$_POST['mail'],$_POST['mdp'])){
-        $_SESSION["mail"] = $_POST['mail'];
+        var_dump($_SESSION);
         header('Location: include/liste.php');
+        
     }
     else{
         echo "Connexion echouée";
+        session_destroy();
     }
 
 ?>
