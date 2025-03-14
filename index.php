@@ -28,21 +28,13 @@
 <?php
 
     if(isset($_POST)){
-
-        var_dump($_POST);
-
         $mail = $_POST['mail'];
         $mdp = $_POST['mdp'];
         $btn_co = $_POST['connexion']; 
         
         if($btn_co == ""){
             $connexion = db_connect();
-            $result = create_user($connexion,$mail,$mdp);
-            if($result){
-                echo "Connexion reussie";
-            }else{
-                echo "Connexion echouée";
-            }
+            $result = select_user($connexion,$mail,$mdp);
         }
 
 
