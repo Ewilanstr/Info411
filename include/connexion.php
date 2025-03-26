@@ -1,5 +1,5 @@
 <?php
-    require('../Info411/connect.php');
+    require('../connect.php');
 
 	function db_connect(){
 
