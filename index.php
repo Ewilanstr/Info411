@@ -26,7 +26,11 @@
         return $res;
     }
     $_SESSION["mail"] = $_POST['mail'];
+    var_dump($_SESSION);
     if (est_connecte($connexion,$_POST['mail'],$_POST['mdp'])){
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         var_dump($_SESSION);
         header('Location: include/liste.php');
         

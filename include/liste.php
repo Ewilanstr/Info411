@@ -1,9 +1,15 @@
 <?php
-    include('../crud/crud_utilisateur.php');
 
     session_start();
 
+    if (!isset($_SESSION["mail"])) {
+        header('Location: ../index.php');
+    }
+    include('../crud/crud_utilisateur.php');
+
     echo "Bonjour ". $_SESSION["mail"]; 
+
+
 
 
 ?>
