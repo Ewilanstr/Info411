@@ -16,3 +16,20 @@ function select_user($conn,$mail,$mdp){
 	return $res ; 
 }
 
+function rs_to_tab_user($conn){
+	$tab = array() ; 
+	while($ligne=mysqli_fetch_assoc($conn)){
+		$tab[] = $ligne ; 
+	}
+	return $tab ; 
+}
+
+function list_user($conn){
+	$sql="SELECT * FROM `utilisateur`"; 
+	global $debug ;
+	if($debug) echo $sql ; 
+	$res=mysqli_query($conn, $sql) ; 
+	return json_encode(rs_to_tab_user($res)) ;
+}
+
+
