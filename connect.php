@@ -7,7 +7,7 @@
 
 	$MARIADB_ROOT_PASSWORD='lol';
 
-	define('SERVEUR_BD','c_mariadb:3306');
+	define('SERVEUR_BD','c_mariadb');
 	define('MARIADB_USER','root');
 	define('MARIADB_ROOT_PASSWORD',$MARIADB_ROOT_PASSWORD);
 	define('MARIADB_DATABASE','test');
