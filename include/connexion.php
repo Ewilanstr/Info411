@@ -5,7 +5,7 @@
 
 	
 	
-		$CONNEXION = mysqli_connect (SERVEUR_BD, MARIADB_USER, MARIADB_ROOT_PASSWORD);
+		$CONNEXION = mysqli_connect (SERVEUR_BD, MARIADB_USER, "Password2025!");
 		//Connexion au serveur de bases de données
 		if (mysqli_connect_errno()) {
 			echo 'Désolé, connexion au serveur ' . SERVEUR_BD . ' impossible, '. mysqli_connect_error(), "\n";

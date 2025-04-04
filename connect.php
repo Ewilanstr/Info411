@@ -5,12 +5,12 @@
 	// define ('PASS_BD','');
 	// define ('NOM_BD','test'); 
 
-	$MARIADB_ROOT_PASSWORD='lol';
+	$MARIADB_ROOT_PASSWORD='ROOT-Password2025!';
 
-	define('SERVEUR_BD','c_mariadb:3306');
-	define('MARIADB_USER','root');
+	define('SERVEUR_BD','mariadb');
+	define('MARIADB_USER','userbd');
 	define('MARIADB_ROOT_PASSWORD',$MARIADB_ROOT_PASSWORD);
-	define('MARIADB_DATABASE','test');
+	define('MARIADB_DATABASE','mabase');
 
 
 
