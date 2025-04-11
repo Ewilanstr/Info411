@@ -1,0 +1,33 @@
+services:
+
+  mariadb:
+    image: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+    ports:
+      - ${PORT_MARIADB}:3306
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+  monapache:
+    image: bluz0/monapache
+    ports:
+      - ${PORT_APACHE}:80  # Port d'accès à l'application
+    volumes:
+      - .:/var/www/html
+
+
+  monubuntu:
+    image: bluz0/monubuntu
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: mariadb  # Connexion automatique à MariaDB
+    ports:
+      - ${PORT_PHPMYADMIN}:80  # Port d'accès à phpMyAdmin
+
+
